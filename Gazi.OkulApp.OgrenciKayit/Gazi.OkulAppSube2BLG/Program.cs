@@ -16,7 +16,7 @@ namespace Gazi.OkulAppSube2BLG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmOgrKayit());
+            Application.Run(new OkulAnaSayfa());
         }
     }
 }
