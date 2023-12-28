@@ -35,6 +35,14 @@ namespace Gazi.OkulAppSube2BLG
                 {
                     MessageBox.Show($"'{Id}' Id'ye sahip kaydı başarıyla silindi. ");
                 }
+                else if(silme ==false)
+                        {
+                    MessageBox.Show($"'{Id}' Id'ye sahip bir kayıt bulunamadı ");
+                }
+                else
+                {
+                    MessageBox.Show("Bir Hata Meydana Geldi!");
+                }
             }
             catch (Exception ex)
             {
