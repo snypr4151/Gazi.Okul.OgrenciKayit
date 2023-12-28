@@ -14,6 +14,7 @@ namespace Gazi.OkulAppSube2BLG
     {
         Form frmOgrKayit = new frmOgrKayit();
         Form frmOgrtKayit = new frmOgrtKayit();
+        Form frmOgrtSilme = new frmOgrtSilme();
         public OkulAnaSayfa()
         {
             InitializeComponent();
@@ -27,6 +28,21 @@ namespace Gazi.OkulAppSube2BLG
         private void btnOgretmenEkle_Click(object sender, EventArgs e)
         {
             frmOgrtKayit.ShowDialog();
+        }
+
+        private void OkulAnaSayfa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            frmOgrtSilme.ShowDialog();
         }
     }
 }

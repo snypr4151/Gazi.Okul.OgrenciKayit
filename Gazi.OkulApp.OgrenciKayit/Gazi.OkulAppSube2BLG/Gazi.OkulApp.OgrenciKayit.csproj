@@ -65,6 +65,12 @@
     <Compile Include="frmOgrtKayit.Designer.cs">
       <DependentUpon>frmOgrtKayit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOgrtSilme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOgrtSilme.Designer.cs">
+      <DependentUpon>frmOgrtSilme.cs</DependentUpon>
+    </Compile>
     <Compile Include="OkulAnaSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOgrtKayit.resx">
       <DependentUpon>frmOgrtKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOgrtSilme.resx">
+      <DependentUpon>frmOgrtSilme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OkulAnaSayfa.resx">
       <DependentUpon>OkulAnaSayfa.cs</DependentUpon>
@@ -106,6 +115,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{5823188D-0A09-4B14-9855-C5D242E31B2C}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OkulApp.BLL\OkulApp.BLL.csproj">
       <Project>{2ce9d75a-6eba-4b28-86fc-acedb1a88209}</Project>
       <Name>OkulApp.BLL</Name>
