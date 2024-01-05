@@ -36,6 +36,10 @@
             this.lblOgrtSoyad = new System.Windows.Forms.Label();
             this.lblOgrtAd = new System.Windows.Forms.Label();
             this.btnKaydet = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnBul = new System.Windows.Forms.Button();
             this.gbOgrtBilgi.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +51,7 @@
             this.gbOgrtBilgi.Controls.Add(this.lblOgrtTcNo);
             this.gbOgrtBilgi.Controls.Add(this.lblOgrtSoyad);
             this.gbOgrtBilgi.Controls.Add(this.lblOgrtAd);
-            this.gbOgrtBilgi.Location = new System.Drawing.Point(13, 14);
+            this.gbOgrtBilgi.Location = new System.Drawing.Point(16, 15);
             this.gbOgrtBilgi.Name = "gbOgrtBilgi";
             this.gbOgrtBilgi.Size = new System.Drawing.Size(280, 178);
             this.gbOgrtBilgi.TabIndex = 0;
@@ -104,19 +108,68 @@
             // 
             // btnKaydet
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(158, 209);
+            this.btnKaydet.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnKaydet.Location = new System.Drawing.Point(305, 16);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(100, 30);
+            this.btnKaydet.Size = new System.Drawing.Size(96, 30);
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.UseVisualStyleBackColor = false;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnSil.Location = new System.Drawing.Point(304, 124);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(96, 30);
+            this.btnSil.TabIndex = 2;
+            this.btnSil.Text = "Sil";
+            this.btnSil.UseVisualStyleBackColor = false;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnGuncelle.Location = new System.Drawing.Point(305, 89);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(96, 30);
+            this.btnGuncelle.TabIndex = 3;
+            this.btnGuncelle.Text = "Güncelle";
+            this.btnGuncelle.UseVisualStyleBackColor = false;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnTemizle.Location = new System.Drawing.Point(304, 160);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(96, 30);
+            this.btnTemizle.TabIndex = 4;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.UseVisualStyleBackColor = false;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // btnBul
+            // 
+            this.btnBul.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnBul.Location = new System.Drawing.Point(304, 53);
+            this.btnBul.Name = "btnBul";
+            this.btnBul.Size = new System.Drawing.Size(96, 30);
+            this.btnBul.TabIndex = 5;
+            this.btnBul.Text = "Bul";
+            this.btnBul.UseVisualStyleBackColor = false;
+            this.btnBul.Click += new System.EventHandler(this.btnBul_Click);
             // 
             // frmOgrtKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 253);
+            this.ClientSize = new System.Drawing.Size(404, 205);
+            this.Controls.Add(this.btnBul);
+            this.Controls.Add(this.btnTemizle);
+            this.Controls.Add(this.btnGuncelle);
+            this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.gbOgrtBilgi);
             this.Name = "frmOgrtKayit";
@@ -130,12 +183,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbOgrtBilgi;
-        private System.Windows.Forms.TextBox tbOgrtTcNo;
-        private System.Windows.Forms.TextBox tbOgrtSoyad;
-        private System.Windows.Forms.TextBox tbOgrtAd;
+        public System.Windows.Forms.TextBox tbOgrtTcNo;
+        public System.Windows.Forms.TextBox tbOgrtSoyad;
+        public System.Windows.Forms.TextBox tbOgrtAd;
         private System.Windows.Forms.Label lblOgrtTcNo;
         private System.Windows.Forms.Label lblOgrtSoyad;
         private System.Windows.Forms.Label lblOgrtAd;
         private System.Windows.Forms.Button btnKaydet;
+        public System.Windows.Forms.Button btnSil;
+        public System.Windows.Forms.Button btnGuncelle;
+        private System.Windows.Forms.Button btnTemizle;
+        private System.Windows.Forms.Button btnBul;
     }
 }

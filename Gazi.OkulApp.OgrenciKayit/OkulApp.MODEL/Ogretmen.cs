@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OkulApp.MODEL
-
+namespace OkulApp.MODEL 
+{ 
     public class Ogretmen
 {
     public int OgretmenId { get; set; }

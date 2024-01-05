@@ -15,9 +15,12 @@ namespace Gazi.OkulAppSube2BLG
 {
     public partial class frmOgrKayit : Form
     {
+        public int Ogrenciid { get; set; }
         public frmOgrKayit()
         {
             InitializeComponent();
+            btnSil.Enabled = false;
+            btnGuncelle.Enabled = false;
         }
 
 
@@ -41,15 +44,88 @@ namespace Gazi.OkulAppSube2BLG
                     case 2627:
                         MessageBox.Show("Bu numara daha önce kayıtlı");
                         break;
-                    default:                        
+                    default:
                         MessageBox.Show(ex.Message);
                         break;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Bir hata oluştu!!");
+                MessageBox.Show("Beklenmeyen bir hata oluştu: " + ex.Message);
             }
+        }
+
+        private void btnBul_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new frmOgrBul(this);
+                frm.Show();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Veritabanı hatası: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Beklenmeyen bir hata oluştu: " + ex.Message);
+            }
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var obl = new OgrenciBL();
+                MessageBox.Show(obl.OgrenciSil(Ogrenciid) ? "Silme Başarılı" : "İşlem Başarısız!");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Veritabanı silme hatası: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Öğrenci silinirken bir hata oluştu: " + ex.Message);
+            }
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var obl = new OgrenciBL();
+                MessageBox.Show(obl.OgrenciGuncelle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim(), Ogrenciid = Ogrenciid }) ? "Güncelleme Başarılı" : "İşlem Başarısız!");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Veritabanı güncelleme hatası: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Öğrenci güncellenirken bir hata oluştu: " + ex.Message);
+            }
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtAd.Clear();
+                txtSoyad.Clear();
+                txtNumara.Clear();
+
+                btnSil.Enabled = false;
+                btnGuncelle.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+        }
+
+        private void frmOgrKayit_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
