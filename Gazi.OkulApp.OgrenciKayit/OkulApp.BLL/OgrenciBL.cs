@@ -43,7 +43,7 @@ namespace OkulApp.BLL
             }
         }
 
-        public Ogrenci OgreciBul(string numara)
+        public Ogrenci OgrenciBul(string numara)
         {
             try
             {

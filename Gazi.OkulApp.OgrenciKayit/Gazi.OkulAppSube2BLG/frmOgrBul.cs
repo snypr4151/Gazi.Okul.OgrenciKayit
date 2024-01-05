@@ -26,7 +26,7 @@ namespace Gazi.OkulAppSube2BLG
         private void btnAra_Click(object sender, EventArgs e)
         {
             OgrenciBL obl = new OgrenciBL();
-            Ogrenci ogr = obl.OgreciBul(txtNumara.Text.Trim());
+            Ogrenci ogr = obl.OgrenciBul(txtNumara.Text.Trim());
             if (ogr!=null)
             {
                 frm.txtAd.Text = ogr.Ad;

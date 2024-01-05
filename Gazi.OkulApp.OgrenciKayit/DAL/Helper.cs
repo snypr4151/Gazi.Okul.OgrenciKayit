@@ -5,24 +5,27 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class Helper : IDisposable
+    public class Helper
     {
         SqlConnection cn;
         SqlCommand cmd;
         string cstr = ConfigurationManager.ConnectionStrings["cstr"].ConnectionString;
 
-        private static Helper helper = new Helper();
+        private static Helper helper;
 
         private Helper() { }
 
         public static Helper SDP
-        {
+        { 
             get
             {
+                if(helper == null) {
+                    helper = new Helper();
+                    
+                }
                 return helper;
             }
         }
-
 
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p = null)
         {
@@ -41,7 +44,8 @@ namespace DAL
                     }
                 }
             }
-            catch (SqlException ex) {
+            catch (SqlException ex)
+            {
                 throw new Exception("Veritabanı hatası: " + ex.Message);
             }
             catch (Exception ex)
@@ -54,19 +58,16 @@ namespace DAL
         {
             try
             {
-                using (var cn = new SqlConnection(cstr))
-                {
-                    using (var cmd = new SqlCommand(cmdtext, cn))
-                    {
-                        if (p != null)
-                        {
-                            cmd.Parameters.AddRange(p);
-                        }
-                        cn.Open();
+                var cn = new SqlConnection(cstr); 
+                var cmd = new SqlCommand(cmdtext, cn);
 
-                        return cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                    }
+                if (p != null)
+                {
+                    cmd.Parameters.AddRange(p);
                 }
+                cn.Open();
+
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
             }
             catch (SqlException ex)
@@ -77,6 +78,7 @@ namespace DAL
             {
                 throw new Exception("Bir hata oluştu: " + ex.Message);
             }
+       
         }
     }
 }
