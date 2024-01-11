@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class Helper
+    public class Helper :IDisposable
     {
         SqlConnection cn;
         SqlCommand cmd;
@@ -24,6 +24,19 @@ namespace DAL
                     
                 }
                 return helper;
+            }
+        }
+
+        public void DisposeEt()
+        {
+            if (cn != null) 
+            {
+                cn.Close();
+                cn.Dispose();
+            }
+            if (cmd != null)
+            {
+                cmd.Dispose();
             }
         }
 

@@ -45,9 +45,9 @@ namespace OkulApp.BLL
 
         public Ogrenci OgrenciBul(string numara)
         {
+            var hlp = Helper.SDP;
             try
             {
-                var hlp = Helper.SDP;
                 SqlParameter[] p = { new SqlParameter("@Numara", numara) };
                 var dr = hlp.ExecuteReader("SELECT OgrenciId,Ad,Soyad,Numara FROM tblOgrenciler WHERE Numara=@Numara", p);
                 Ogrenci ogr = null;
@@ -71,6 +71,11 @@ namespace OkulApp.BLL
             {
                 throw new Exception("Öğrenci bulma işlemi sırasında bir hata oluştu: " + ex.Message);
             }
+            finally 
+            {
+                hlp.DisposeEt();
+            }
+
 
         }
 
