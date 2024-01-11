@@ -33,6 +33,7 @@ namespace DAL
             {
                 cn.Close();
                 cn.Dispose();
+
             }
             if (cmd != null)
             {
